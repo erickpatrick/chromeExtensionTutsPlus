@@ -1,13 +1,13 @@
 {
-    "name": "Publication speedester",
+    "name": "Tuts+ Publishing",
     "version": "0.2",
     "manifest_version": 2,
-    "description": "Fastest publisher alive",
+    "description": "Make speedster",
     "background": {
         "scripts": ["background.js"]
     },
     "content_scripts": [{
-        "matches": ["https://tutsplus.io/*"],
+        "matches": ["https://tutsplus.io/*", "https://*.tutsplus.com/*"],
         "js": ["content.js"],
         "run_at": "document_end"
     }],
