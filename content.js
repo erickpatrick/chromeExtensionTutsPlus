@@ -77,7 +77,7 @@ let extractContent = function (event) {
     // edge case #1: there are publications without H1 tags
     let h1Text = h1 ? h1.innerText : '';
 
-    let figure = fragment.querySelector('.final-product.final-product--image');
+    let figure = fragment.querySelector('.final-product');
     let firstParagraph = fragment.querySelectorAll('p')[0].innerText;
 
     // since we cannot add directly to the translation "editor" we need to create
