@@ -75,7 +75,7 @@ let extractContent = function (event) {
     let h1 = fragment.querySelector('h1');
 
     // edge case #1: there are publications without H1 tags
-    let h1Text = h1 && h1.hasOwnProperty("innerText") ? h1.innerText : '';
+    let h1Text = h1 ? h1.innerText : '';
 
     let figure = fragment.querySelector('.final-product.final-product--image');
     let firstParagraph = fragment.querySelectorAll('p')[0].innerText;
@@ -147,10 +147,10 @@ document.querySelector('body').appendChild(buttons);
 
 // if search result has only one result open it
 if (window.location.href.search('searches') !== -1) {
-    let results = document.querySelector('.posts-list__row');
+    let results = document.querySelectorAll('.posts-list__row');
 
-    if ((new Array(results)).length == 1) {
-        window.location = results.querySelector('.posts-list__column a').getAttribute('href') + '?automatic';
+    if (results.length == 1) {
+        window.location = results[0].querySelector('.posts-list__column a').getAttribute('href') + '?automatic';
     }
 }
 
