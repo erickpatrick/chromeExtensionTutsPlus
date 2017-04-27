@@ -1,6 +1,6 @@
 {
     "name": "Tuts+ Publishing",
-    "version": "0.3",
+    "version": "0.4",
     "manifest_version": 2,
     "description": "Make speedster",
     "background": {
