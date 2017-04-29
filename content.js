@@ -85,6 +85,10 @@ let extractContent = function (event) {
     let textarea = document.createElement('textarea');
     let div = document.createElement('div');
 
+
+    // the JS editor
+    let editor = document.querySelector('.ace_text-input');
+
     // edge case #2: there are publications with or without .post-body__content
     // due to content that came from legacy system and was not cleaned out
     if (fragment.querySelector('.post-body__content')) {
@@ -119,6 +123,11 @@ let extractContent = function (event) {
     textarea.setAttribute('style', 'width: 100%');
     textarea.setAttribute('class', 'translated-post-form__teaser-field');
     document.querySelector('.translated-post-form__content').insertBefore(textarea, document.querySelector('.translated-post-form__content-editor'));
+
+    // focus automatically into the editor
+    editor.focus();
+    // automatically select editor's content
+    editor.select();
 }
 
 // create action menu items
@@ -136,11 +145,19 @@ let buttons = document.createElement('div');
 // position menu
 buttons.setAttribute('style', 'position:fixed;top:0;right:0;z-index:99999;background-color:black;color:white;padding:5px;');
 
-// add speed buttons
-buttons.appendChild(createButtonAndAttachMethod('Size', getTranslationSize));
-buttons.appendChild(createButtonAndAttachMethod('Profiles', openTutsIOProfiles));
-buttons.appendChild(createButtonAndAttachMethod('Posts', openTutsIOPosts));
-buttons.appendChild(createButtonAndAttachMethod('Back', goBackTwoPages));
+// add speed buttons for tutsplus.com
+if (window.location.href.search('.com') !== -1) {
+    buttons.appendChild(createButtonAndAttachMethod('Size', getTranslationSize));
+}
+
+// add speed buttons for tutsplus.io
+if (window.location.href.search('.io') !== -1) {
+    buttons.appendChild(createButtonAndAttachMethod('Translate', openTranslationPage));
+    buttons.appendChild(createButtonAndAttachMethod('Original', goToOriginalPost));
+    buttons.appendChild(createButtonAndAttachMethod('Profiles', openTutsIOProfiles));
+    buttons.appendChild(createButtonAndAttachMethod('Posts', openTutsIOPosts));
+    buttons.appendChild(createButtonAndAttachMethod('Back', goBackTwoPages));
+}
 
 // attach menu to page
 document.querySelector('body').appendChild(buttons);
