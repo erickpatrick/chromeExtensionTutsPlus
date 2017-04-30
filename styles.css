@@ -1,0 +1,49 @@
+[class^=chr] {
+    box-sizing: border-box;
+}
+
+.chrExtBar {
+    display: block;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 99999;
+    background-color: #fafafa;
+    color: black;
+}
+
+.chrExtButton {
+    margin-right: 20px;
+    border: 0;
+    background: #444;
+    color: white;
+    text-transform: capitalize;
+}
+
+.chrExtInput {
+    box-shadow: none !important;
+    line-height: 1 !important;
+    margin-bottom: 0 !important;
+    padding: 10px !important;
+    border-radius: 0 !important;
+    border: 1px solid #ddd !important;
+    border-right: 0;
+}
+
+.chrExtTranslationData {
+    margin-left: 20px;
+}
+
+.chrExtLabel {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.chrExtInput,
+.chrExtButton {
+    height: 35px !important;
+}
