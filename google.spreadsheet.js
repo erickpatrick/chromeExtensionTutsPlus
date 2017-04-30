@@ -1,5 +1,7 @@
 if (window.location.href.search('tutsplus.io') !== -1) {
     let getBaseData = function (data) {
+        // strange separator, yes, but that's what google spreadsheet adds
+        // to separate colums' values when copying a full line
         data = data.split('\	');
 
         return {
