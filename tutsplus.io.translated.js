@@ -7,7 +7,8 @@ if (window.location.href.search('translated_posts') !== -1) {
     let language = document.querySelector('.translated-post-form__language-code-field');
     let translator = document.querySelector('.translated-post-form__language-code-field');
 
-    let selectOption = function (languageName) {
+    // selects the correct language for this publication
+    let selectLanguageOption = function (languageName) {
         let optionIndex;
 
         [].filter.call(language.options, function (item) {
@@ -62,7 +63,6 @@ if (window.location.href.search('translated_posts') !== -1) {
         let textarea = document.createElement('textarea');
         let div = document.createElement('div');
 
-
         // the JS editor
         let editor = document.querySelector('.ace_text-input');
 
@@ -107,11 +107,14 @@ if (window.location.href.search('translated_posts') !== -1) {
         editor.select();
     }
 
+    // if there's a cookie, we came automatically, so we need to clean it and
+    // tell the app to do its work
     if (publication) {
         Cookie.set('publication', '');
-        selectOption(publication.language);
+        selectLanguageOption(publication.language);
         showTranslator(publication.translator);
     }
 
+    // the trick that makes pasting into the title clen up the translation HTML
     document.querySelector('.translated-post-form__title-field').addEventListener('paste', extractContent);
 }
