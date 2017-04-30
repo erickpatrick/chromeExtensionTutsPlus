@@ -1,6 +1,6 @@
 {
     "name": "Tuts+ Publishing",
-    "version": "0.7",
+    "version": "1.0.0",
     "manifest_version": 2,
     "description": "Make speedster",
     "background": {
@@ -12,7 +12,20 @@
             "https://*.tutsplus.com/*",
             "https://getnative.me/*"
         ],
-        "js": ["content.js"],
+        "css": [
+            "styles.css"
+        ],
+        "js": [
+            "helper.js",
+            "tutsplus.io.js",
+            "tutsplus.io.search.js",
+            "tutsplus.io.edit.js",
+            "tutsplus.io.translated.js",
+            "tutsplus.com.js",
+            "getnative.me.js",
+            "google.spreadsheet.js",
+            "attach-bar.js"
+        ],
         "run_at": "document_end"
     }],
     "permissions": [
