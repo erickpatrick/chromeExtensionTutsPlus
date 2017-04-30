@@ -33,5 +33,6 @@ if (window.location.href.search('tutsplus.com') !== -1) {
         body[0].appendChild(div);
     }
 
+    // add item to bar
     bar.appendChild(createButtonAndAttachMethod('Size', getTranslationSize));
 }
