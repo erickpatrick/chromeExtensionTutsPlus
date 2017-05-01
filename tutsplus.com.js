@@ -1,5 +1,5 @@
-// Only do this if it's google spreadsheets
-if (window.location.href.search('tutsplus.com\/tutorials\/') !== -1) {
+if (window.location.href.search('tutsplus.com\/tutorials\/') !== -1 ||
+    window.location.href.search('tutsplus.com\/articles\/') !== -1) {
     let billable = document.querySelector("meta[property='native:billable']").getAttribute('content');
     let contentLength = document.querySelector("meta[property='native:length']").getAttribute('content');
     let div = document.createElement('div');
