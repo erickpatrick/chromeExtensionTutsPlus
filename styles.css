@@ -15,6 +15,10 @@
     color: black;
 }
 
+.chrExtBar p {
+    margin: 0;
+}
+
 .chrExtButton {
     margin-right: 20px;
     border: 0;
