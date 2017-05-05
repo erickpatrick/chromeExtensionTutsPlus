@@ -31,8 +31,18 @@ if (window.location.href.search('tutsplus.com\/tutorials\/') !== -1 ||
         text += '</p>';
     }
 
-    // show tip on screen
+    // fill div
     div.innerHTML = text;
+
+    // add button to add to native
+    if (billable !== 'false') {
+        div.querySelector('p').insertBefore(
+            createButtonAndAttachMethod('Add to Native', function () {
+                document.querySelector('.post-translate-button').click()
+            }),
+            div.querySelector('p').querySelector('strong')
+        );
+    }
 
     // add item to bar
     bar.appendChild(div);
