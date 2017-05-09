@@ -1,6 +1,6 @@
-if (window.location.href.search('tutsplus.io') !== -1) {
+if (window.location.href.search('tutsplus.io') !== -1 && window.location.href.search('courses') === -1) {
     let openTutsIOProfiles = function () {
-        window.location = 'https://tutsplus.io/profiles';
+        openUrlInNewTab('https://tutsplus.io/profiles');
     };
 
     bar.appendChild(createButtonAndAttachMethod('Profiles', openTutsIOProfiles));
