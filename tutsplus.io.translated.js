@@ -23,18 +23,26 @@ if (window.location.href.search('translated_posts') !== -1) {
     // added to it. Thus, we can only display some 
     let showTranslator = function (translatorName) {
         let input = document.createElement('input');
-        let label = document.createElement('label');
+        let btn = document.createElement('button');
 
         input.value = translatorName;
         input.setAttribute('class', 'chrExtInput');
         input.setAttribute('id', 'chrExtInput');
 
-        label.setAttribute('for', 'chrExtInput');
-        label.setAttribute('class', 'chrExtLabel');
-        label.innerText = 'Translator';
+        btn.innerHTML = 'Copy Translator';
+        btn.setAttribute('class', 'chrExtButton');
 
-        bar.appendChild(label);
+        // event delegation so the element is added with the event and we
+        // can press it to copy the content of the input. It is necessary
+        // to pass the callback directly to the click event so it can be
+        // bound to the element
+        document.querySelector('body').addEventListener("click", function () {
+            input.select();
+            document.execCommand('copy');
+        });
+
         bar.appendChild(input);
+        bar.appendChild(btn);
     }
 
     // takes full post translation content from title field and extract its parts
