@@ -30,16 +30,20 @@ if (window.location.href.search('translated_posts') !== -1) {
         input.setAttribute('id', 'chrExtInput');
 
         btn.innerHTML = 'Copy Translator';
-        btn.setAttribute('class', 'chrExtButton');
+        btn.setAttribute('class', 'chrExtButton chrExtButton--translator');
 
-        // event delegation so the element is added with the event and we
-        // can press it to copy the content of the input. It is necessary
-        // to pass the callback directly to the click event so it can be
-        // bound to the element
-        document.querySelector('body').addEventListener("click", function () {
-            input.select();
-            document.execCommand('copy');
-        });
+        // event delegation so the element is added with the event and we can
+        // press it to copy the content of the input. It is necessary to pass 
+        // the callback directly to the click event so it can be bound to the
+        // element. And we also need to blur so we can keep working in the 
+        // page, otherwise, it will keep the selection
+        document.querySelector('body').addEventListener("click", function (event) {
+            if (event.target.className === 'chrExtButton chrExtButton--translator') {
+                input.select();
+                document.execCommand('copy');
+                input.blur();
+            }
+        }, false);
 
         bar.appendChild(input);
         bar.appendChild(btn);
