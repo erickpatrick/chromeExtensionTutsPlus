@@ -1,6 +1,6 @@
 {
     "name": "Tuts+ Publishing",
-    "version": "1.6.1",
+    "version": "1.7.0",
     "manifest_version": 2,
     "description": "Make speedster",
     "background": {
@@ -27,10 +27,11 @@
             "courses.js",
             "attach-bar.js"
         ],
-        "run_at": "document_end"
+        "run_at": "document_idle"
     }],
     "permissions": [
         "tabs",
+        "activeTab",
         "contextMenus",
         "https://*/*"
     ]
