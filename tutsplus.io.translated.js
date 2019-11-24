@@ -76,7 +76,10 @@ if (window.location.href.search('translated_posts') !== -1) {
         let div = document.createElement('div');
 
         // the JS editor
-        let editor = document.querySelector('.ace_text-input');
+        let editor = document.querySelector('.html-editor__content textarea');
+
+        // show content textarea no js
+        document.querySelector('#toggleHtmlEditor.pull-right').click();
 
         // edge case #2: there are publications with or without .post-body__content
         // due to content that came from legacy system and was not cleaned out
@@ -109,14 +112,11 @@ if (window.location.href.search('translated_posts') !== -1) {
         }
 
         // style new textarea to match the other so it doesn't brake the layout
-        textarea.setAttribute('style', 'width: 100%');
-        textarea.setAttribute('class', 'translated-post-form__teaser-field');
-        document.querySelector('.translated-post-form__content').insertBefore(textarea, document.querySelector('.translated-post-form__content-editor'));
+        // textarea.setAttribute('style', 'width: 100%; background-color: gold');
+        // textarea.setAttribute('class', 'translated-post-form__teaser-field');
+        // document.querySelector('.translated-post-form__content').insertBefore(textarea, document.querySelector('#translated_post_teaser').nextElementSibling);
 
-        // focus automatically into the editor
-        editor.focus();
-        // automatically select editor's content
-        editor.select();
+        editor.value = textarea.value
     }
 
     // if there's a cookie, we came automatically, so we need to clean it and
