@@ -5,7 +5,7 @@ if (window.location.href.search('edit') !== -1) {
     let goToOriginalTutsPlusComPost = function () {
         // content_scripts don't have access to chrome.tabs, so we need to send a
         // message to a background script so it can open the tab for us
-        openUrlInNewTab(document.querySelector('.post-form__url a').getAttribute('href'));
+        openUrlInNewTab(document.querySelector('.post-form__url a').innerText);
     };
 
     // if post has translation returns it, otherwise, null
